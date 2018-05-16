@@ -1,0 +1,36 @@
+<header class="header-container bg-dark d-flex flex-row flex-nowrap align-items-center p-3">
+    <div>
+        <p class="h4 text-light">Priorities App (Angular)</p>
+    </div>
+    <div class="header-controls ml-auto">
+        <button class="btn btn-outline-warning" (click)="onReset()">Reset</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 row d-flex flex-row flex-nowrap">
+            <div class="card m-2 mr-xl-3" style="flex-grow: 1;">
+                <div class="card-body">
+                    <h4>Priorities (First Things First)
+                        <span class="d-inline-block pull-right">
+                            <button class="btn btn-outline-secondary" data-toggle="collapse" data-target="#collapseInstructions" aria-expanded="false"
+                                aria-controls="collapseInstructions">
+                                <i class="fa fa-angle-down fa-lg" aria-hidden="true"></i>
+                            </button>
+                        </span>
+                    </h4>
+                    <div class="collapse" id="collapseInstructions">
+                        <ul class="ml-2 pl-2">
+                            <li>Create some tasks</li>
+                            <li>Drag into boxes accordingly</li>
+                            <li>Delete by dragging into red trash</li>
+                            <li>Complete the tasks by clicking on the check box</li>
+                            <li>Restart the app by clicking on the "Reset" button (this will delete all tasks assigned)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

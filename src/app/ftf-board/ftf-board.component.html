@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-xl-3 row mr-xl-2 d-flex flex-row flex-nowrap flex-xl-column-reverse justify-content-xl-end">
+            <!-- <div class="col col-xl-12 order-xl-2 card m-2"> -->
+            <div class="card m-2" style="flex-grow: 1;">
+                <div class="card-body">
+                    <form (ngSubmit)="onNewTask()">
+                        <div class="input-group mb-3">
+                            <input id="title" type="text" class="form-control" placeholder="New task..." aria-label="New task..." aria-describedby="basic-addon1"
+                                name="title" [(ngModel)]="taskTitle">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" (click)="onNewTask()">
+                                    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <ul class="list-group list-group-flush border border-secondary rounded">
+                        <li draggable *ngFor="let item of newTasks" [dragData]="item" (onDragStart)="onTaskDrag($event, FROM_CREATION)" class="list-group-item d-flex align-items-center justify-content-between list-group-item-action"
+                            [dragHandle]="'.drag-bar'" [dragClass]="'drag-over'">
+                            {{ item.title }}
+                            <i #dragHandle class="drag-bar fa fa-bars fa-lg" aria-hidden="true"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <div droppable (onDrop)="onDeleteDrop($event)" [dragOverClass]="'drag-target-border'" class="col-sm-2 col-md-1 col-xl-12 order-xl-1 card m-2 bg-danger d-flex justify-content-center align-items-center border-secondary"
+                style="min-height: 80px"> -->
+            <div droppable (onDrop)="onDeleteDrop($event)" [dragOverClass]="'drag-target-border'" class="card m-2 bg-danger d-flex justify-content-center align-items-center border-secondary"
+                style="min-height: 80px; min-width: 80px;">
+                <i class="fa fa-trash fa-lg text-white" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="col-12 col-xl-9 row priorities-container">
+            <!-- Important / Urgent -->
+            <ftf-board-priority [priority]="pImportantUrgent" (draggingTask)="onTaskDrag($event, FROM_IMPORTANT_URGENT)" (droppingTask)="onTaskDrop($event, FROM_IMPORTANT_URGENT)"></ftf-board-priority>
+
+            <!-- Important / Not Urgent -->
+            <ftf-board-priority [priority]="pImportantNotUrgent" (draggingTask)="onTaskDrag($event, FROM_IMPORTANT_NOT_URGENT)" (droppingTask)="onTaskDrop($event, FROM_IMPORTANT_NOT_URGENT)"></ftf-board-priority>
+
+            <!-- Not Important / Urgent -->
+            <ftf-board-priority [priority]="pNotImportantUrgent" (draggingTask)="onTaskDrag($event, FROM_NOT_IMPORTANT_URGENT)" (droppingTask)="onTaskDrop($event, FROM_NOT_IMPORTANT_URGENT)"></ftf-board-priority>
+
+            <!-- Not Important / Not Urgent -->
+            <ftf-board-priority [priority]="pNotImportantNotUrgent" (draggingTask)="onTaskDrag($event, FROM_NOT_IMPORTANT_NOT_URGENT)"
+                (droppingTask)="onTaskDrop($event, FROM_NOT_IMPORTANT_NOT_URGENT)"></ftf-board-priority>
+
+        </div>
+    </div>
+</div>

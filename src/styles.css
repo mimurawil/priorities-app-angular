@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+.board-background {
+    background-color: #7998c933;
+}
+
+.priority-i-u {
+    background-color: #e97778;
+}
+
+.priority-i-nu {
+    background-color: #89c7b6;
+}
+
+.priority-ni-u {
+    background-color: #ffd57e;
+}
+
+.priority-ni-nu {
+    background-color: #ad84c7;
+}
